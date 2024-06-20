@@ -19,8 +19,10 @@ export const routes: Routes = [
   { path: '**', component: NotFoundComponent, title:"Not Found"}, // Không bao giờ để path dưới path not found
 ];
 
-@NgModule({
-    imports: [RouterModule.forRoot(routes, { useHash: true }),CommonModule],
-    exports: [RouterModule]
-})
-export class AppRoutingModule { }
+//@NgModule({
+//    imports: [RouterModule.forRoot(routes, { useHash: true }),
+//    CommonModule,
+//    ],
+//    exports: [RouterModule]
+//})
+//export class AppRoutingModule { }
