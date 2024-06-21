@@ -6,21 +6,21 @@
             <label for="id_user">Mã User</label>
             <input id="id_user" type="text" formControlName="id_user" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full">
             <div class="text-base text-color" *ngIf="userForm.get('id_user')?.invalid && userForm.get('id_user')?.touched">
-              <a style="color:brown;">* </a>Mã người dùng là bắt buộc.
+              <a style="color:brown;">* </a>Vui lòng nhập mã người dùng.
             </div>
           </div>
         <div class="field col-4 md:col-6">
             <label for="name">Tên User</label>
             <input id="namename" type="text" formControlName="name" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full">
             <div class="text-base text-color" *ngIf="userForm.get('name')?.invalid && userForm.get('name')?.touched">
-              <a style="color:brown;">* </a>Tên là bắt buộc.
+              <a style="color:brown;">* </a>Vui lòng nhập tên.
             </div>
           </div>
         <div class="field col-4 md:col-6">
             <label for="email">Email</label>
             <input id="email" type="email" formControlName="email" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full">
             <div class="text-base text-color" *ngIf="userForm.get('email')?.invalid && userForm.get('email')?.touched">
-              <a style="color:brown;">* </a>Nhập email hợp lệ.
+              <a style="color:brown;">* </a>Vui lòng nhập email hợp lệ.
             </div>
           </div>
         <div class="field col-3 md:col-3">
@@ -37,7 +37,7 @@
             <label for="joinDate">Ngày tham gia</label>
             <input id="joinDate" type="date" formControlName="joinDate" class=" surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full">
             <div class="text-base text-color" *ngIf="userForm.get('joinDate')?.invalid && userForm.get('joinDate')?.touched">
-              <a style="color:brown;">* </a>Ngày tham gia là bắt buộc.
+              <a style="color:brown;">* </a>.
             </div>
           </div>
           <div class="field col-4 md:col-3 ">

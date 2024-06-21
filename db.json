@@ -62,6 +62,15 @@
       "email": "B@gmail.com",
       "id_gender": "2",
       "joinDate": "2024-05-27"
+    },
+    {
+      "id": 0,
+      "id_user": "VD008",
+      "avatar": "",
+      "name": "C",
+      "email": "hqhplxag@gmail.com",
+      "id_gender": "2",
+      "joinDate": "2024-05-27"
     }
   ],
   "genders": [
