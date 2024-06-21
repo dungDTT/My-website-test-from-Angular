@@ -1,61 +1,73 @@
 <p>contact works!</p>
 <div class="container">
-    <form [formGroup]="userForm" >
-        <div class="">
-            <div class="row">
-                <div class="col-4">
-                    <label for="">tên user</label>
-                    <input type="text" class="form-control" formControlName="fullname">
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-4">
-                    <label for="">email</label>
-                    <input type="text" class="form-control" formControlName="email">
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-4">
-                    <label for="">số điện thoại</label>
-                    <input type="text" class="form-control" formControlName="contact">
-                </div>
-            </div>
+    <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+        <!-- <div >
+          <label for="id">ID</label>
+          <input id="id" type="text" formControlName="id" readonly>
         </div>
-        <div formArrayName="subjects">
-            <div *ngFor="let subject of subjects.controls,let i=index" [formGroupName]="i">
-                <div class="row">
-                    <div class="col-4">
-                        <label for="">tên</label>
-                        <input type="text" class="form-control" formControlName="name">
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-4">
-                        <label for="">status</label>
-                        <input type="text" class="form-control" formControlName="status">
+       -->
+        <div>
+          <label for="id_user">Mã User</label>
+          <input id="id_user" type="text" formControlName="id_user">
+          <div *ngIf="userForm.get('id_user')?.invalid && userForm.get('id_user')?.touched">
+            Mã người dùng là bắt buộc.
+          </div>
+        </div>
+      
+        <div>
+          <label for="avatar">Avatar</label>
+          <input id="avatar" type="text" formControlName="avatar">
+        </div>
+      
+        <div>
+          <label for="name">Tên user</label>
+          <input id="name" type="text" formControlName="name">
+          <div *ngIf="userForm.get('name')?.invalid && userForm.get('name')?.touched">
+            Tên là bắt buộc.
+          </div>
+        </div>
+      
+        <div>
+          <label for="email">Email</label>
+          <input id="email" type="email" formControlName="email">
+          <div *ngIf="userForm.get('email')?.invalid && userForm.get('email')?.touched">
+            Nhập email hợp lệ.
+          </div>
+        </div>
+      
+        <div>
+          <label for="joinDate">Ngày tham gia</label>
+          <input id="joinDate" type="date" formControlName="joinDate">
+          <div *ngIf="userForm.get('joinDate')?.invalid && userForm.get('joinDate')?.touched">
+            Ngày tham gia là bắt buộc.
+          </div>
+        </div>
+      
+        <button type="submit" >Submit</button>
+      </form>
+      
+      <p>Kết quả: {{ result }}</p>
 
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-4">
-                        <label for="">marks</label>
-                        <input type="text" class="form-control" formControlName="marks">
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-4">
-                        <button type="button" (click)="RemoveSubjects(i)">Xóa subject</button>
-                    </div>
-                </div>
-                {{result}}
-            </div>
-        </div>
-        <div class="col-4">
-            <button type="button" (click)="AddSubjects()">Thêm subject</button>
-        </div>
-        <div class="col-4">
-            <button type="submit" (click)="onSubmit()">Submit</button>
-        </div>
-    </form>
 
+      <div class="container">
+        <div *ngFor="let user of users">
+            <tr>
+                <li>
+                    {{user.id}}
+                </li>
+                <li>
+                    {{user.id_user}}
+                </li>
+                <li>
+                    {{user.name}}
+                </li>
+                <li>
+                    {{user.email}}
+                </li>
+                <li>
+                    {{user.joinDate}}
+                </li>
+            </tr>
+        </div>
+      </div>
 </div>

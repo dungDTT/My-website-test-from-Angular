@@ -1,0 +1,20 @@
+{
+    "users": [
+      {
+        "id": 1,
+        "userCode": "VD001",
+        "avatar": "avatar1.png",
+        "name": "Huynh Quoc Dung",
+        "email": "hqhplxag@gmail.com",
+        "joinDate": "2024-01-01"
+      },
+      {
+        "id": 2,
+        "userCode": "VD002",
+        "avatar": "avatar2.png",
+        "name": "Le Huynh Buu Thanh",
+        "email": "lhbt@gmaail.com",
+        "joinDate": "2024-01-02"
+      }
+    ]
+  }
