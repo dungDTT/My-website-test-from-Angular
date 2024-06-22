@@ -9,7 +9,9 @@ import { ButtonModule } from 'primeng/button';
 import { ScrollPanelModule } from 'primeng/scrollpanel';
 import { DataService } from '../data.service';
 
-import { FormArray, FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { from } from 'rxjs';
+
+import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { DatePipe } from '@angular/common';
 
 @Component({
@@ -32,6 +34,8 @@ import { DatePipe } from '@angular/common';
 
 export class testformComponent {
   
+  resultrxjs: number[] = [];
+
   userForm: FormGroup;
   //currentId = 1;
   result = '';
@@ -41,6 +45,9 @@ export class testformComponent {
 
   //pipe = new DatePipe('vi-VN');
   today: number = Date.now();
+
+
+
 
   constructor(private fb: FormBuilder, private dataService: DataService) {
     this.userForm = this.fb.group({
@@ -55,6 +62,17 @@ export class testformComponent {
   }
 
    ngOnInit(): void {
+
+    const array = [10, 20, 30];
+    const observableFromArray = from(array);
+
+    observableFromArray.subscribe({
+      next: value => this.resultrxjs.push(value),
+      error: err => console.error('Error:', err),
+      complete: () => console.log('Completed')
+    });
+
+
      this.LoadUsers(); 
      this.LoadGenders();
    }
