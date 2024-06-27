@@ -19,16 +19,16 @@
     <h2>Update user</h2>
     <input class="border-1 border-round" style="width:50px;text-align: right;" type="number" [(ngModel)]="SelectedUser.id" placeholder="ID" disabled="true">
 
-    <a class="p-1">
-      <input class="border-1 border-round p-1" type="text" placeholder="Họ tên" [(ngModel)]="SelectedUser.name">
+    <a class="p-1" >
+      <input [readOnly]="ReadonlyActive" class="border-1 border-round p-1" id="readonly" type="text" placeholder="Họ tên" [(ngModel)]="SelectedUser.name">
     </a>
     <a class="p-1">
-      <input class="border-1 border-round p-1" type="text" placeholder="Email" [(ngModel)]="SelectedUser.email">
+      <input [readOnly]="ReadonlyActive" class="border-1 border-round p-1" type="text" placeholder="Email" [(ngModel)]="SelectedUser.email">
     </a >
     <a class="p-1">
-      <input class="border-1 border-round p-1" type="text" placeholder="Số liên lạc" [(ngModel)]="SelectedUser.contact">
+      <input [readOnly]="ReadonlyActive" class="border-1 border-round p-1" type="text" placeholder="Số liên lạc" [(ngModel)]="SelectedUser.contact">
     </a>
-    <button class="border-round p-1" (click)="UpdateUser()">Update</button>
+    <button [disabled]="DisabledActive" class="border-round p-1" (click)="UpdateUser()">Update</button>
   </div>
 </div>
 

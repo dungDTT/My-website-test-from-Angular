@@ -39,6 +39,12 @@ export class testformComponent implements OnInit {
   GetUser: User[] = [];
   SelectedUser: User = { id: 0, name: '', email: '', contact: ''};
   result = '';
+
+  ReadonlyActive: boolean = true;
+  DisabledActive: boolean = true;    
+
+
+
   constructor(private dataservice: DataService) {}
 
   ngOnInit(): void {
@@ -63,6 +69,8 @@ export class testformComponent implements OnInit {
         await this.dataservice.UpdateUser(this.SelectedUser.id, this.SelectedUser);
         console.log('Item updated');
         this.GetAllUser();
+        this.ReadonlyActive = true;
+        this.DisabledActive = true;
         this.SelectedUser = { id: 0, name: '', email: '', contact: ''}; // Reset form
       }
     } catch (error) {
@@ -71,6 +79,8 @@ export class testformComponent implements OnInit {
   }
 
    Select(id: number) {
+    this.ReadonlyActive = false;
+    this.DisabledActive = false;
     const item = this.GetUser.find(item => item.id === id);
     if (item) {
       this.SelectedUser = { ...item }; 
