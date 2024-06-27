@@ -1,87 +1,62 @@
-<p style="text-align: center;margin-top:5px ;margin-bottom: 5px;" class="">Mini Project</p>
-<div class="container">
-    <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
-      <div class="formgrid grid border-1 border-round p-4" style="width:60%;margin:auto;">
-        <div class="field col-4 md:col-6">
-            <label for="id_user">Mã User</label>
-            <input id="id_user" type="text" formControlName="id_user" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full">
-            <div class="text-base text-color" *ngIf="userForm.get('id_user')?.invalid && userForm.get('id_user')?.touched">
-              <a style="color:brown;">* </a>Vui lòng nhập mã người dùng.
-            </div>
-          </div>
-        <div class="field col-4 md:col-6">
-            <label for="name">Tên User</label>
-            <input id="namename" type="text" formControlName="name" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full">
-            <div class="text-base text-color" *ngIf="userForm.get('name')?.invalid && userForm.get('name')?.touched">
-              <a style="color:brown;">* </a>Vui lòng nhập tên.
-            </div>
-          </div>
-        <div class="field col-4 md:col-6">
-            <label for="email">Email</label>
-            <input id="email" type="email" formControlName="email" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full">
-            <div class="text-base text-color" *ngIf="userForm.get('email')?.invalid && userForm.get('email')?.touched">
-              <a style="color:brown;">* </a>Vui lòng nhập email hợp lệ.
-            </div>
-          </div>
-        <div class="field col-3 md:col-3">
-            <label for="id_gender">Giới tính</label>
-            <select id="id_gender" formControlName="id_gender" class="w-full text-base surface-overlay p-2 border-1 border-solid surface-border border-round outline-none focus:border-primary" style="appearance: auto">
-              <option value="" disabled>------</option>
-              <option *ngFor="let gender of genders" [value]="gender.id">{{ gender.ten_gioitinh }}</option>
-            </select>
-            <div *ngIf="userForm.get('gender')?.invalid && userForm.get('gender')?.touched">
-              Giới tính là bắt buộc.
-            </div>
-        </div>
-        <div class="field col-4 md:col-3">
-            <label for="joinDate">Ngày tham gia</label>
-            <input id="joinDate" type="date" formControlName="joinDate" class=" surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full">
-            <div class="text-base text-color" *ngIf="userForm.get('joinDate')?.invalid && userForm.get('joinDate')?.touched">
-              <a style="color:brown;">* </a>.
-            </div>
-          </div>
-          <div class="field col-4 md:col-3 ">
-            <label></label>
-            <button type="submit" class="btn border-round" [disabled]="userForm.invalid">{{ isEdit ? 'Sửa' : 'Thêm' }}</button>
-          </div>    
-      </div>
-        
-    </form>
-      
-    <p>Kết quả: {{ result }}</p>
 
 
-    <div class="container">
-      
-      <p-table [value]="users" [tableStyle]="{ 'min-width': '50rem' }">
-        <ng-template pTemplate="header">
-            <tr>
-                <th>#</th>
-                <th>Mã User</th>
-                <th>Tên User</th>
-                <th>Giới tính</th>
-                <th>Email</th>
-                <th>Ngày tham gia</th>
-            </tr>
-        </ng-template>
-        <ng-template class="overflow-scroll" style="max-height:50px;" pTemplate="body" let-user>
-              <tr>
-                  <td>
-                    <button (click)="EditUser(user)">Edit
-                    </button>
-                    <button (click)="DeleteUser(user.id)">Xóa
-                    </button>
-                    
-                  </td>
-                  <td>{{ user.id_user }}</td>
-                  <td>{{ user.name }}</td>
-                  <td>{{ getGenderName(user.id_gender) }}</td>
-                  <td>{{ user.email }}</td>
-                  <td>{{ user.joinDate | date:"dd/MM/yyyy"}}</td>
-              </tr>
-          </ng-template>
-        
+<div class="p-4">
+  <h2>Thêm user</h2>
+  <a class="p-1">
+    <input class="border-1 border-round p-1" type="text" placeholder="Họ tên" [(ngModel)]="NewUser.name">
+  </a>
+  <a class="p-1">
+    <input class="border-1 border-round p-1" type="text" placeholder="Email" [(ngModel)]="NewUser.email">
+  </a >
+  <a class="p-1">
+    <input class="border-1 border-round p-1" type="text" placeholder="Số liên lạc" [(ngModel)]="NewUser.contact">
+  </a>
+  <button class="border-round p-1" (click)="CreateUser()">Thêm</button>
+</div>
 
-      </p-table>
-    </div>
+<div>
+  <div class="p-4">
+    <h2>Update user</h2>
+    <input class="border-1 border-round" style="width:50px;text-align: right;" type="number" [(ngModel)]="SelectedUser.id" placeholder="ID" disabled="true">
+
+    <a class="p-1">
+      <input class="border-1 border-round p-1" type="text" placeholder="Họ tên" [(ngModel)]="SelectedUser.name">
+    </a>
+    <a class="p-1">
+      <input class="border-1 border-round p-1" type="text" placeholder="Email" [(ngModel)]="SelectedUser.email">
+    </a >
+    <a class="p-1">
+      <input class="border-1 border-round p-1" type="text" placeholder="Số liên lạc" [(ngModel)]="SelectedUser.contact">
+    </a>
+    <button class="border-round p-1" (click)="UpdateUser()">Update</button>
+  </div>
+</div>
+
+<div class="m-2">
+    Kết quả: {{result}}
+</div>
+
+
+<div>
+  <p-table [value]="GetUser" [tableStyle]="{ 'min-width': '50rem' }">
+    <ng-template pTemplate="header">
+        <tr><th>...</th>
+            <th>#</th>
+            <th>Họ tên</th>
+            <th>Email</th>
+            <th>Số liên lạc</th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-user>
+        <tr>
+            <td><button class="border-round" (click)="Select(user.id)">✎</button></td>
+            <td>{{ user.id }}</td>
+            <td>{{ user.name }}</td>
+            <td>{{ user.email }}</td>
+            <td>{{ user.contact }}</td>
+        </tr>
+    </ng-template>
+  </p-table>
+  <!-- <button (click)="GetAllUser()">Load Users</button> -->
+  
 </div>

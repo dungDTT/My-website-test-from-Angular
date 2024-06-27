@@ -1,76 +1,13 @@
 {
   "users": [
     {
-      "id": "1",
-      "id_user": "VD001",
-      "avatar": "avatar1.png",
+      "id": 0,
+      "id_user": "VD000",
+      "avatar": "",
       "name": "Huynh Quoc Dung",
       "email": "hqhplxag@gmail.com",
       "id_gender": "1",
-      "joinDate": "2024-01-01"
-    },
-    {
-      "id": "2",
-      "id_user": "VD002",
-      "avatar": "avatar2.png",
-      "name": "Le Huynh Buu Thanh",
-      "id_gender": "2",
-      "email": "lhbt@gmaail.com",
-      "joinDate": "2024-01-02"
-    },
-    {
-      "id": "3",
-      "id_user": "VD003",
-      "avatar": "avatar03.png",
-      "name": "Vo Tan Khoi",
-      "id_gender": "2",
-      "email": "vtk@gmail.com",
-      "joinDate": "2024-05-28"
-    },
-    {
-      "id": "4",
-      "id_user": "VD004",
-      "avatar": "avvatar4.png",
-      "name": "Pham Le Duy Duc",
-      "id_gender": "2",
-      "email": "pldduc@gmail.com",
-      "joinDate": "2024-05-28"
-    },
-    {
-      "id": "5",
-      "id_user": "VD005",
-      "avatar": "",
-      "name": "Thai Van Nghia",
-      "id_gender": "1",
-      "email": "tvnghia@gmail.com",
       "joinDate": "2024-05-26"
-    },
-    {
-      "id": "6",
-      "id_user": "VD006",
-      "avatar": "",
-      "name": "Nguyen Van A",
-      "id_gender": "2",
-      "email": "A@gmail.com",
-      "joinDate": "2024-05-27"
-    },
-    {
-      "id": 0,
-      "id_user": "VD007",
-      "avatar": "",
-      "name": "Nguyen Van B",
-      "email": "B@gmail.com",
-      "id_gender": "2",
-      "joinDate": "2024-05-27"
-    },
-    {
-      "id": 0,
-      "id_user": "VD008",
-      "avatar": "",
-      "name": "C",
-      "email": "hqhplxag@gmail.com",
-      "id_gender": "2",
-      "joinDate": "2024-05-27"
     }
   ],
   "genders": [

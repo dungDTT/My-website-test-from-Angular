@@ -1,31 +1,44 @@
 import { Injectable } from '@angular/core';
 import axios from 'axios';
 
+export interface User {
+  id?: number;
+  name: string;
+  email: string;
+  contact: string;
+}
+
 @Injectable({
   providedIn: 'root'
 })
+
+
 export class DataService {
-  private apiUrl = 'http://localhost:3000';
+  private apiUrl = 'http://localhost:3000/users';
 
   constructor() { }
 
-  GetAllUsers() {
-    return axios.get(`${this.apiUrl}/users`).then(res => res.data);
+  async CreateUser(user: User): Promise<User> {
+    const res = await axios.post<User>(this.apiUrl, user, {
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    });
+    return res.data;
   }
 
-  GetAllGenders() {
-    return axios.get(`${this.apiUrl}/genders`).then(res => res.data);
+  async UpdateUser(id: number, user: User): Promise<void> {
+    await axios.put<void>(`${this.apiUrl}/${id}`, user, {
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    });
   }
 
-  AddUser(user: any) {
-    return axios.post(`${this.apiUrl}/users`, user).then(res => res.data);
+  async GetAllUser(): Promise<User[]> {
+    const res = await axios.get<User[]>(`${this.apiUrl}`);
+    return res.data;
   }
 
-  UpdateUser(id: string, user: any) {
-    return axios.put(`${this.apiUrl}/users/${id}`, user).then(res => res.data);
-  }
-
-  DeleteUser(id: string) {
-    return axios.delete(`${this.apiUrl}/users/${id}`).then(res => res.data);
-  }
+  
 }
